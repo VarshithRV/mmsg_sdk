@@ -6,7 +6,7 @@ class RosServiceWrapper:
     def __init__(self):
         rospy.init_node('ros_service_wrapper')
         self.service = rospy.Service('/gripper', SetBool, self.callback)
-        self.setpoint_pub = rospy.Publisher('/gripper_setpoint', Bool, queue_size=1)
+        self.setpoint_pub = rospy.Publisher('/gripper', Bool, queue_size=1)
         self.setpoint_pub_timer = rospy.Timer(rospy.Duration(0.05), self.setpoint_pub_callback)
         self.setpoint = False
 
